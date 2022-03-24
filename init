@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Provide default versions for Node.js, NPM and Yarn.
+NODEJS_VERSION=${NODEJS_VERSION:-14.19.2}
+NPM_VERSION=${NPM_VERSION:-8.5.5}
+YARN_VERSION=${YARN_VERSION:-2.4.3}
+
+
+function main() {
+  echo "Installing Node.js ${NODEJS_VERSION}, NPM ${NPM_VERSION} and Yarn ${YARN_VERSION}."
+}
+
+main
