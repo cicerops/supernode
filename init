@@ -1,13 +1,60 @@
 #!/bin/bash
 
+# `supernode` is a small helper program for providing Node.js environments to
+# development sandboxes and CI systems.
+
+# License: AGPL-3.0
+# Updates and contributions: https://github.com/cicerops/supernode
+
+
 # Provide default versions for Node.js, NPM and Yarn.
-NODEJS_VERSION=${NODEJS_VERSION:-14.19.2}
+NODEJS_VERSION=${NODEJS_VERSION:-14.19.1}
 NPM_VERSION=${NPM_VERSION:-8.5.5}
 YARN_VERSION=${YARN_VERSION:-2.4.3}
 
 
+# Setup Python virtual environment.
+function setup_python_env() {
+  python3 -m venv .venv
+  source .venv/bin/activate
+  # pip install --quiet --upgrade pip
+  pip install --quiet nodeenv
+}
+
+
+# Setup Node.js virtual environment.
+function setup_nodejs_env() {
+  source .venv/bin/activate
+  nodeenv --python-virtualenv --node=${NODEJS_VERSION}
+  npm install --global npm@${NPM_VERSION}
+  npm install --global yarn@${YARN_VERSION}
+}
+
+
+function setup() {
+  echo "----------------"
+  echo "supernode setup"
+  echo "----------------"
+  echo "Provisioning Node.js ${NODEJS_VERSION}, NPM ${NPM_VERSION} and Yarn ${YARN_VERSION}."
+  echo
+  setup_python_env
+  setup_nodejs_env
+}
+
+# Display environment status.
+function status() {
+  echo "----------------"
+  echo "supernode status"
+  echo "----------------"
+  echo "Node.js: $(node --version)"
+  echo "NPM:     $(npm --version)"
+  echo "Yarn:    $(yarn --version)"
+  echo
+}
+
 function main() {
-  echo "Installing Node.js ${NODEJS_VERSION}, NPM ${NPM_VERSION} and Yarn ${YARN_VERSION}."
+  setup
+  status
 }
 
 main
