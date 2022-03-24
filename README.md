@@ -29,3 +29,22 @@ export YARN_VERSION=1.22.18
 # Setup Node.js environment.
 source /dev/stdin <<<"$(curl -s https://raw.githubusercontent.com/cicerops/supernode/main/supernode)"
 ```
+
+
+## Example output
+
+```text
+---------------
+supernode setup
+---------------
+Provisioning Node.js 14.19.1, NPM 6.14.15 and Yarn 1.22.18.
+
+Lalala....
+
+----------------
+supernode status
+----------------
+Node.js: v14.19.1
+NPM:     6.14.15
+Yarn:    1.22.18
+```

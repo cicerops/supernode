@@ -32,9 +32,9 @@ function setup_nodejs_env() {
 
 
 function setup() {
-  echo "----------------"
+  echo "---------------"
   echo "supernode setup"
-  echo "----------------"
+  echo "---------------"
   echo "Provisioning Node.js ${NODEJS_VERSION}, NPM ${NPM_VERSION} and Yarn ${YARN_VERSION}."
   echo
   setup_python_env
