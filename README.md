@@ -20,5 +20,5 @@ export NPM_VERSION=6.14.15
 export YARN_VERSION=1.22.18
 
 # Setup Node.js environment.
-source /dev/stdin <<<"$(curl -s https://raw.githubusercontent.com/cicerops/supernode/main/init)"
+source /dev/stdin <<<"$(curl -s https://raw.githubusercontent.com/cicerops/supernode/main/supernode)"
 ```
