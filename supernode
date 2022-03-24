@@ -8,7 +8,7 @@
 
 
 # Provide default versions for Node.js, NPM and Yarn.
-NODEJS_VERSION=${NODEJS_VERSION:-14.19.1}
+NODEJS_VERSION=${NODEJS_VERSION:-16.14.2}
 NPM_VERSION=${NPM_VERSION:-8.5.5}
 YARN_VERSION=${YARN_VERSION:-2.4.3}
 
@@ -43,6 +43,7 @@ function setup() {
 
 # Display environment status.
 function status() {
+  source .venv/bin/activate
   echo "----------------"
   echo "supernode status"
   echo "----------------"
